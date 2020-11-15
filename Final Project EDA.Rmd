@@ -47,7 +47,7 @@ Some of the variables I will work directly with will include the CINC score, the
 
 ###Plots
 
-One of the major correlations that I will be looking into will be the relationship between iron and steel production and energy consumption. Two countries which I plan to compare frequently when it comes to this relationship will be the US and China, as these two are dominant economic powers. Below are two plots of this relationship for both countries. Both suggest different concepts. WHere the US is more variable in its production, China is more consistent. I plan to use this data in more complex commands in order to better understand the CINC scores for each country and to better understand the  
+One of the major correlations that I will be looking into will be the relationship between iron and steel production and energy consumption. Two countries which I plan to compare frequently when it comes to this relationship will be the US and China, as these two are dominant economic powers. Below are two plots of this relationship for both countries. Both suggest different ideas. Where the US is more variable in its production, China is more consistent. I plan to use similar data in more complex commands in order to better understand the CINC scores for each country and to better understand the
 
 ```{r}
 NMC_5.0 %>% filter(stateabb == "USA") %>% ggplot(aes(x = irst, y = pec)) + geom_line() + aes(color = stateabb)
@@ -57,9 +57,15 @@ NMC_5.0 %>% filter(stateabb == "USA") %>% ggplot(aes(x = irst, y = pec)) + geom_
 NMC_5.0 %>% filter(stateabb == "CHN") %>% ggplot(aes(x = irst, y = pec)) + geom_line() + aes(color = stateabb)
 
 ```
-In the above two plots, you can see that there is a strong correlation 
+As you can see in the plot below, there is a greater distribution of the countries towards the left of the graph. This is very strange as it would be expected that countries with higher energy consumption would have higher production values, however this is not true. This shows another nuance I intend to look into in answering my research question as it is possible that population also played a factor in this distribution.  
+ 
+```{r}
+NMC_5.0 %>% ggplot(aes(x = irst, y = pec)) + geom_point() + aes(color = year)
+```
 
 ##World Cities
+
+My second data set will be the World Cities data-set from the DataComputing package. As my research question also relates to population, understanding which countries have the most populous cities 
 
 
 
