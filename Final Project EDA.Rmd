@@ -1,0 +1,70 @@
+---
+title: "Final Project EDA"
+name: Daniel Chadourne
+output: html_document
+---
+
+##Front Matter
+```{r}
+# clean up workspace environment
+rm(list = ls())
+# all packages used for the assignment
+library(DataComputing)
+library(tidyr)
+library(ggplot2)
+library(dplyr)
+```
+
+```{r}
+NMC_5.0 <-
+read.csv(file.choose())
+```
+
+```{r}
+NMC_5.0
+```
+
+###Guiding Question
+How have economic, military, and population changes across the globe and across many years transformed the United States into the "global hegemon," and is this "hegemony" secure?
+
+###Data Sources
+
+##National Material Capabilites v5.0
+
+I discovered the National Material Capabilities data-set during one of my previous political science courses. I was a student in Dr. Robert Packer's PLSC 438, National Security Politics course. As Dr. Packer was one of the coders who helped in the creation of this study, he discussed it and the data within at several points during the semester. This data was initially collected by a group of researchers in the 1960's to better understand how the major global powers had become just that, global powers. The Data set has also been updated over the years, with the version 3.0 update having been conducted by our own university, Penn State in 2005, and the most recent update having been conducted in 2017. The data-set is hosted by J Michael Greig and Andrew Enterline from the University of North Texas, and the Correlates of War Data Set Hosting Program.
+
+In the data-set, each case represents one country and its 10 attributes for a given year. These attributes include military expenditure, number of active servicemen in the millions, a state abbreviation, the version of study in which the data was generated, the year, the iron and steel production of the country, the primary energy expenditure of the country, the total and urban populations of the country, and the COmposite Index of National Capabilities Score for each country. This final variable is computed based on the six population, energy, military, and production variables, and it used to describe the "power" each country holds.
+
+```{r}
+NMC_5.0 %>% summarise(n())
+```
+This data-set consists of 15,171 cases. This is primarily due to the fact that this data-set covers several countries from 1816 to 2012.
+
+
+Some of the variables I will work directly with will include the CINC score, the year, and the six population, energy, military, and production variables (irst, pec, milex, milper, tpop, upop).
+
+
+
+###Plots
+
+One of the major correlations that I will be looking into will be the relationship between iron and steel production and energy consumption. Two countries which I plan to compare frequently when it comes to this relationship will be the US and China, as these two are dominant economic powers. Below are two plots of this relationship for both countries. Both suggest different concepts. WHere the US is more variable in its production, China is more consistent. I plan to use this data in more complex commands in order to better understand the CINC scores for each country and to better understand the  
+
+```{r}
+NMC_5.0 %>% filter(stateabb == "USA") %>% ggplot(aes(x = irst, y = pec)) + geom_line() + aes(color = stateabb)
+
+```
+```{r}
+NMC_5.0 %>% filter(stateabb == "CHN") %>% ggplot(aes(x = irst, y = pec)) + geom_line() + aes(color = stateabb)
+
+```
+In the above two plots, you can see that there is a strong correlation 
+
+##World Cities
+
+
+
+
+
+
+
+
